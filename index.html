@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: #111;
+font-family: helvetica;
+}
+
+.nav {
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+font-size: 45px;
+}
+
+a {
+display: block;
+padding: 5px;
+color: #fff;
+text-decoration: none;
+background-size: 0 5px;
+background-position: 0 100%;
+border-bottom: 1px solid #fff;
+cursor: pointer;
+position: relative;
+font-weight: bold;
+transition: background 0.1s ease;
+animation-name: shake;
+animation-duration: calc(var(--speed) * 1s);
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out;
+}
+
+a:hover {
+background: linear-gradient(90deg, yellow, transparent);
+background-size: 100% 5px;
+background-repeat: no-repeat;
+background-position: 0 100%;
+border: none;
+--speed: 0.1;
+--rotation: -1;
+--y: -1;
+--x: 1;
+}
+
+@keyframes shake {
+
+0%,
+100% {
+transform: translate(calc(var(--x) * -1%), 0) 
+rotate(calc(var(--rotation) * -1deg));
+}
+
+50% {
+transform: translate(calc(var(--x) * 1%), calc(var(--y) * 1%)) 
+rotate(calc(var(--rotation) * 1deg));
+}
+}
+
+i {
+color: #fff;
+font-size: 40px;
+float: right;
+margin:0px 8px 0px 50px;
+}
+
+</style>
+</head>
+<body>
+<div class="nav">
+<a href=""><i class=" fas fa-home"></i>Home</a>
+<a href=""><i class="fas fa-envelope"></i>Inbox</a>
+<a href=""><i class=" fas fa-user"></i>Profile</a>
+<a href=""><i class="fas fa-sign-in-alt"></i>Logout</a>
+</div>
+</body>
+<script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+</html>
